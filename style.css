@@ -850,7 +850,7 @@ main.register {
   padding-block: var(--space-l);
   color: var(--white-color);
   background-color: #222;
-  margin-block-end: var(--space-xl-2xl);
+  margin-block-end: var(--space-xl);
 }
 
 @supports (background-blend-mode: multiply) {
@@ -881,30 +881,32 @@ main.register .btn-article > * {
 }
 /* Awal Information */
 
+section.information {
+  margin-block-end: var(--space-xl);
+  /* border: 3px solid navy; */
+}
 .wrap-information {
-  --gap: var(--space-m);
   grid-template-areas:
-    "one"
-    "two"
-    "three"
-    "four";
+    "one one"
+    "two three"
+    "four four";
 }
 
-.wrap-information_item.first {
+/* .wrap-information_item {
+  border: 3px solid lime;
+} */
+
+.wrap-information > *:first-child {
   grid-area: one;
 }
-.wrap-information_item.second {
+.wrap-information > *:nth-child(2) {
   grid-area: two;
 }
-.wrap-information_item.third {
+.wrap-information > *:nth-child(3) {
   grid-area: three;
 }
-.wrap-information_item.last {
+.wrap-information > *:last-child {
   grid-area: four;
-}
-
-.wrap-information_item {
-  border: 3px solid navy;
 }
 
 .company-logo {
@@ -913,13 +915,9 @@ main.register .btn-article > * {
   --gap: 0.8em;
 }
 
-.company-logo > * {
-  border: 3px solid firebrick;
-}
-
 .logo_design {
-  flex-basis: 5%;
-  min-width: 80px;
+  flex-basis: 3%;
+  min-width: 60px;
   object-fit: cover;
   aspect-ratio: 1;
 }
@@ -929,7 +927,7 @@ main.register .btn-article > * {
 }
 
 .company-name {
-  font-size: var(--step-3);
+  font-size: var(--step-2);
   color: var(--primary-color);
 }
 
@@ -945,24 +943,33 @@ main.register .btn-article > * {
   list-style: none;
 }
 
+.information-list__item {
+  color: var(--p-color);
+}
+
+.information-list__item > i.bi {
+  color: var(--primary-color);
+}
+
 .information-list > * + * {
   margin-block-start: var(--space-2xs);
 }
 
 .newsletter-box {
   background-color: var(--section-bg-color);
-  padding: var(--space-m);
+  padding: var(--space-s);
 }
 
 .information_item--title {
-  margin-bottom: var(--space-s);
+  margin-bottom: var(--space-xs);
 }
 
 .input-row {
   --gap: 0.55em;
   place-items: center;
-  padding: var(--space-xs);
-  border: 3px solid firebrick;
+  padding: var(--space-2xs);
+  /* border: 3px solid firebrick; */
+  border-radius: 1.25em;
   background-color: var(--white-color);
 }
 
@@ -972,11 +979,32 @@ main.register .btn-article > * {
 }
 
 .btn.send {
-  padding: 0.4em;
+  padding-block: 0.5em;
   border-radius: 50%;
   --bg-clr-btn: var(--primary-color);
 }
 
+/* Footer */
+footer.footer {
+  padding: var(--space-s-m);
+  color: var(--white-color);
+  background-color: var(--social-icon-link-bg-color);
+}
+
+/* Akhir Footer */
+.icon-arrow {
+  color: white;
+  font-size: var(--step-2);
+}
+
+.icon-arrow > i.bi {
+  /* color: var(--secondary-color); */
+}
+
+.copy-right {
+  font-size: var(--step--1);
+  text-align: left;
+}
 /* Akhir Information */
 
 /* ============ Responsive Breakpoints ================ */
@@ -1004,6 +1032,18 @@ main.register .btn-article > * {
       "two three"
       "five five"
       "four four";
+  }
+  .wrap-information {
+    grid-template-areas:
+      "one one two three"
+      "four four four four";
+  }
+
+  .wrap-footer {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-content: center;
   }
 }
 
@@ -1035,5 +1075,9 @@ main.register .btn-article > * {
 
   main.register .container {
     justify-content: space-between;
+  }
+
+  .wrap-information {
+    grid-template-areas: "one two three four four";
   }
 }
